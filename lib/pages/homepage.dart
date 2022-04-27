@@ -9,22 +9,13 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  final List<Estudiante> _estudiantes = [
-    Estudiante("16171472", "Victor Rivera Moreno", "Sistemas", "10",
-        "+646123456", "victor@ite.edu.mx"),
-    Estudiante("18659804", "Julio Cesar Chavez", "Sistemas", "8", "+646304831",
-        "julio@ite.edu.mx"),
-    Estudiante("20147508", "Leticia Aurora Escobar", "Industrial", "5",
-        "+6673472485", "leticia@ite.edu.mx"),
-    Estudiante("18595427", "Cristina Hernandez Ayala", "Electronica", "7",
-        "+6691293857", "cristina@ite.edu.mx")
-  ];
+  final List<Estudiante> _estudiantes = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Laboratorio 13'),
+        title: const Text('Laboratorio 14'),
         centerTitle: true,
         backgroundColor: Colors.indigo,
       ),
@@ -73,4 +64,15 @@ class Estudiante {
   //Constructor
   Estudiante(this.matricula, this.nombrecompleto, this.carrera, this.semestre,
       this.telefono, this.correo);
+
+  //Paso el JSON como parametro,al enviar peticiones http el paquete convierte la cadena JSON en un mapa
+  Estudiante.fromJSON(Map<String, dynamic> json) {
+    //Objetos
+    matricula = json['matricula'];
+    nombrecompleto = json['nombre_completo'];
+    carrera = json['carrera'];
+    semestre = json['semestre'];
+    telefono = json['telefono'];
+    correo = json['correo'];
+  }
 }

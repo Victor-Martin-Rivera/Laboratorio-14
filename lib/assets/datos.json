@@ -1,0 +1,36 @@
+{
+    "estudiantes":[
+        {
+            "nombre_completo": "Victor Rivera Moreno",
+            "matricula": "16171472",
+            "carrera": "Sistemas",
+            "semestre": "10",
+            "telefono": "+646123456",
+            "email": "victor@ite.edu.mx"
+        },
+    {
+        "nombre_completo": "Julio Cesar Chavez",
+        "matricula": "18659804",
+        "carrera": "Sistemas",
+        "semestre": "8",
+        "telefono": "+646304831",
+        "email": "julio@ite.edu.mx"
+    },
+    {
+        "nombre_completo": "Leticia Aurora Escobar",
+        "matricula": "20147508",
+        "carrera": "Industrial",
+        "semestre": "5",
+        "telefono": "+6673472485",
+        "email": "leticia@ite.edu.mx"
+    },
+    {
+        "nombre_completo": "Cristina Hernandez Ayala",
+        "matricula": "18595427",
+        "carrera": "Electronica",
+        "semestre": "7",
+        "telefono": "+6691293857",
+        "email": "cristina@ite.edu.mx"
+    }
+    ]
+}

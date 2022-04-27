@@ -1,11 +1,10 @@
-{
-    "estudiantes":[
-        {
-            "nombre_completo": "Victor Rivera Moreno",
-            "matricula": "16171472",
-            "carrera": "Sistemas",
-            "semestre": "10",
-            "telefono": "+646123456",
+[
+    {
+        "nombre_completo": "Victor Rivera Moreno",
+        "matricula": "16171472",
+        "carrera": "Sistemas",
+        "semestre": "10",
+        "telefono": "+646123456",
             "email": "victor@ite.edu.mx"
         },
     {
@@ -32,5 +31,4 @@
         "telefono": "+6691293857",
         "email": "cristina@ite.edu.mx"
     }
-    ]
-}
+]

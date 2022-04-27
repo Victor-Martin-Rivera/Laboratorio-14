@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:lab_14/pages/estudiantes.dart';
 
 class Homepage extends StatefulWidget {
@@ -9,7 +12,15 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  final List<Estudiante> _estudiantes = [];
+  Future<void> leerDatosEstudiantes(BuildContext context) async {
+    final String datosLeidos = await rootBundle.loadString('assets/datos.json');
+    final datosDecodificados = await json.decode(datosLeidos);
+    setState(() {
+      _estudiantes = datosDecodificados["estudiantes"];
+    });
+  }
+
+  List<Estudiante> _estudiantes = [];
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +45,8 @@ class _HomepageState extends State<Homepage> {
                               Estudiantes(nombre: _estudiantes[index])));
                 },
                 title: Text(
-                  _estudiantes[index].nombrecompleto,
-                  style: const TextStyle(fontSize: 18),
+                  '',
+                  style: TextStyle(fontSize: 18),
                 ),
                 //Se muestra al principio
                 leading: CircleAvatar(
@@ -68,8 +79,8 @@ class Estudiante {
   //Paso el JSON como parametro,al enviar peticiones http el paquete convierte la cadena JSON en un mapa
   Estudiante.fromJSON(Map<String, dynamic> json) {
     //Objetos
-    matricula = json['matricula'];
     nombrecompleto = json['nombre_completo'];
+    matricula = json['matricula'];
     carrera = json['carrera'];
     semestre = json['semestre'];
     telefono = json['telefono'];

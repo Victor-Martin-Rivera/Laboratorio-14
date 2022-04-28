@@ -1,17 +1,25 @@
+// ignore_for_file: prefer_final_fields
+
 import 'package:flutter/material.dart';
 
-import 'homepage.dart';
-
+// ignore: must_be_immutable
 class Estudiantes extends StatelessWidget {
-  final Estudiante nombre;
+  //Estado es como si fuera mi index
+  int estado;
+  List _datosEstudiante = [];
 
-  const Estudiantes({Key? key, required this.nombre}) : super(key: key);
+  Estudiantes(
+    //Se inicializa en el constructor para obtener los datos
+    this.estado,
+    this._datosEstudiante, {
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Laboratorio 13'),
+        title: const Text('Laboratorio 14'),
         centerTitle: true,
         backgroundColor: Colors.indigo,
       ),
@@ -23,17 +31,18 @@ class Estudiantes extends StatelessWidget {
                 ListTile(
                   leading: CircleAvatar(
                     child: Text(
-                      //Poner circulo con respecto al nombre
-                      nombre.nombrecompleto.substring(0, 1),
-                    ),
+                        //Poner circulo con respecto al nombre del primer subindice
+                        _datosEstudiante[estado]["nombre_completo"]
+                            .toString()
+                            .substring(0, 1)),
                   ),
-                  //Nombre Completo y telefono
+                  //Nombre completo
                   title: Text(
-                    nombre.nombrecompleto,
+                    _datosEstudiante[estado]['nombre_completo'],
                     style: const TextStyle(fontSize: 17),
                   ),
                   subtitle: Text(
-                    nombre.telefono,
+                    _datosEstudiante[estado]['telefono'],
                     style: TextStyle(
                         color: Colors.black.withOpacity(0.6), fontSize: 15),
                   ),
@@ -42,7 +51,7 @@ class Estudiantes extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    "Matricula: " + nombre.matricula,
+                    "Matricula: " + _datosEstudiante[estado]['matricula'],
                     style: TextStyle(color: Colors.black.withOpacity(0.7)),
                   ),
                 ),
@@ -50,7 +59,7 @@ class Estudiantes extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    "Carrera: " + nombre.carrera,
+                    "Carrera: " + _datosEstudiante[estado]['carrera'],
                     style: TextStyle(color: Colors.black.withOpacity(0.7)),
                   ),
                 ),
@@ -58,7 +67,7 @@ class Estudiantes extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    "Semestre: " + nombre.semestre,
+                    "Semestre: " + _datosEstudiante[estado]['semestre'],
                     style: TextStyle(color: Colors.black.withOpacity(0.7)),
                   ),
                 ),
@@ -66,7 +75,7 @@ class Estudiantes extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    "Correo: " + nombre.correo,
+                    "Correo: " + _datosEstudiante[estado]['email'],
                     style: TextStyle(color: Colors.black.withOpacity(0.7)),
                   ),
                 ),
